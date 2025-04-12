@@ -2,9 +2,17 @@ package com.fiasco.CadastroDeNinjas.Missao;
 
 import com.fiasco.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name="tbMissao")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissaoModel {
 
     @Id
@@ -16,11 +24,4 @@ public class MissaoModel {
     @OneToMany(mappedBy = "missao")
     private List<NinjaModel> ninjas;
 
-    public MissaoModel() {
-    }
-
-    public MissaoModel(String descricao, String dificuldade) {
-        this.descricao = descricao;
-        this.dificuldade = dificuldade;
-    }
 }
