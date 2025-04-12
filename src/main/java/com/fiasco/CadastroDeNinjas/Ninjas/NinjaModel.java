@@ -1,9 +1,10 @@
-package com.fiasco.CadastroDeNinjas;
+package com.fiasco.CadastroDeNinjas.Ninjas;
 
+import com.fiasco.CadastroDeNinjas.Missao.MissaoModel;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="tCadastro")
+@Table(name="tbNinjas")
 public class NinjaModel {
 
     @Id
@@ -12,6 +13,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    @ManyToOne
+    @JoinColumn(name = "missaoId")
+    private MissaoModel missao;
 
     public NinjaModel() {
     }
